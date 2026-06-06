@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Registration</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <h1>TECH FEST 2026</h1>
+
+    <h2 id="eventTitle">Selected Event</h2>
+
+    <form action="register.php" method="POST">
+
+        <input type="hidden" id="event" name="event">
+
+        <input
+            type="text"
+            name="name"
+            placeholder="Full Name"
+            required
+        >
+
+        <input
+            type="text"
+            name="regno"
+            placeholder="Register Number"
+            required
+        >
+
+        <input
+            type="text"
+            name="department"
+            placeholder="Department"
+            required
+        >
+
+        <select name="year" required>
+            <option value="">Select Year</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+
+        <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            required
+        >
+
+        <input
+            type="tel"
+            name="phone"
+            placeholder="Phone Number"
+            required
+        >
+
+        <button type="submit">
+            Register Now
+        </button>
+
+    </form>
+
+</div>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+
+const eventName = params.get("event");
+
+document.getElementById("eventTitle").innerText =
+eventName ? eventName : "Event Registration";
+
+document.getElementById("event").value =
+eventName ? eventName : "";
+
+</script>
+
+</body>
+</html>
